@@ -1,7 +1,11 @@
-import { Layout } from "containers";
+import { Layout, NftContainer } from "containers";
 
 function App() {
-	return <Layout>This is an NFT display app</Layout>;
+	return (
+		<Layout>
+			<NftContainer />
+		</Layout>
+	);
 }
 
 export default App;
