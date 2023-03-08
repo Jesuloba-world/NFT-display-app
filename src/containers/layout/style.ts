@@ -6,7 +6,7 @@ export const Container = styled.div`
 `;
 
 export const Inner = styled.div`
-	width: 1110px;
+	max-width: 1110px;
 	margin: 0 auto;
 	padding: 80px 0;
 `;

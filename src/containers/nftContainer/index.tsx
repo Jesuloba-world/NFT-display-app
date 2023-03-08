@@ -1,4 +1,4 @@
-import { Container } from "./styles";
+import { Container, Center } from "./styles";
 import { getNftsForAddress } from "queries";
 import { useQuery } from "react-query";
 import { NftCard } from "components";
@@ -9,14 +9,25 @@ export const NftContainer = () => {
 		getNftsForAddress(chosenAddress)
 	);
 
-	isLoading === false && console.log(data);
+	// isLoading === false && console.log(data);
 
 	return (
 		<Container>
 			{isLoading ? (
 				<h1>Loading...</h1>
 			) : (
-				data?.result.map((nft) => <NftCard key={nft.tokenId} />)
+				data?.result.map((nft: any) => {
+					console.log(nft);
+					return (
+						<Center key={nft.tokenId}>
+							<NftCard
+								image={nft.metadata.image as string}
+								name={nft.metadata.name as string}
+								author={nft.name}
+							/>
+						</Center>
+					);
+				})
 			)}
 		</Container>
 	);

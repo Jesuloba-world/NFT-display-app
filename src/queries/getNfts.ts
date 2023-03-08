@@ -4,9 +4,9 @@ import {
 	GetContractNFTsResponseAdapter,
 } from "@moralisweb3/common-evm-utils";
 
-type getNftsForAddressQuery = (
-	address: string
-) => Promise<GetContractNFTsResponseAdapter>;
+interface NFTType extends GetContractNFTsResponseAdapter {}
+
+type getNftsForAddressQuery = (address: string) => Promise<NFTType>;
 
 export const getNftsForAddress: getNftsForAddressQuery = async (address) => {
 	const chain = EvmChain.ETHEREUM;
