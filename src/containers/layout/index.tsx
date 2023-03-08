@@ -1,10 +1,14 @@
 import { FC, ReactNode } from "react";
-import { Container } from "./style";
+import { Container, Inner } from "./style";
 
 interface layoutProps {
 	children: ReactNode;
 }
 
 export const Layout: FC<layoutProps> = ({ children }) => {
-	return <Container>{children}</Container>;
+	return (
+		<Container>
+			<Inner>{children}</Inner>
+		</Container>
+	);
 };
