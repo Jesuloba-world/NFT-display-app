@@ -1,5 +1,6 @@
 import { FC, ReactNode } from "react";
 import { Container, Inner } from "./style";
+import { NftDetailModalProvider } from "context";
 
 interface layoutProps {
 	children: ReactNode;
@@ -7,8 +8,10 @@ interface layoutProps {
 
 export const Layout: FC<layoutProps> = ({ children }) => {
 	return (
-		<Container>
-			<Inner>{children}</Inner>
-		</Container>
+		<NftDetailModalProvider>
+			<Container>
+				<Inner>{children}</Inner>
+			</Container>
+		</NftDetailModalProvider>
 	);
 };

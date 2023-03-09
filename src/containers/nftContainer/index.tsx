@@ -17,13 +17,15 @@ export const NftContainer = () => {
 				<h1>Loading...</h1>
 			) : (
 				data?.result.map((nft: any) => {
-					console.log(nft);
+					// console.log(nft);
 					return (
 						<Center key={nft.tokenId}>
 							<NftCard
 								image={nft.metadata.image as string}
 								name={nft.metadata.name as string}
 								author={nft.name}
+								tokenAddress={nft.tokenAddress._value}
+								tokenId={nft.tokenId}
 							/>
 						</Center>
 					);
