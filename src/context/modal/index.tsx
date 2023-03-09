@@ -1,9 +1,12 @@
 import { createContext, FC, ReactNode, useState, useContext } from "react";
 import { NftModal } from "components";
+import { useNftData, statetype } from "./reducer";
+
+type showModalType = ({}: statetype) => void;
 
 interface nftDetailContextType {
 	isShowingModal: boolean;
-	showModal: () => void;
+	showModal: showModalType;
 	hideModal: () => void;
 }
 
@@ -19,12 +22,15 @@ export const NftDetailModalProvider: FC<{ children: ReactNode }> = ({
 	children,
 }) => {
 	const [isModal, setIsModal] = useState(false);
+	const { nftData, clearNftData, populateNftData } = useNftData();
 
-	const showModal = () => {
+	const showModal: showModalType = (data) => {
+		populateNftData(data);
 		setIsModal(true);
 	};
 
 	const hideModal = () => {
+		clearNftData();
 		setIsModal(false);
 	};
 
@@ -36,7 +42,7 @@ export const NftDetailModalProvider: FC<{ children: ReactNode }> = ({
 				hideModal,
 			}}
 		>
-			{isModal && <NftModal />}
+			{isModal && <NftModal data={nftData} />}
 			{children}
 		</NftDetailModalContext.Provider>
 	);

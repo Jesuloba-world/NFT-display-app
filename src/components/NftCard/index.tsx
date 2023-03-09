@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { Container, ImageBox, NameSection, Name, Author } from "./styles";
 import { useNftModal } from "context";
+import { attributeType } from "context";
 
 interface nftCardProps {
 	name: string;
@@ -8,6 +9,7 @@ interface nftCardProps {
 	author: string;
 	tokenAddress: string;
 	tokenId: string;
+	attributes: attributeType[];
 }
 
 export const NftCard: FC<nftCardProps> = ({
@@ -16,12 +18,12 @@ export const NftCard: FC<nftCardProps> = ({
 	author,
 	tokenAddress,
 	tokenId,
+	attributes,
 }) => {
 	const { showModal } = useNftModal();
 
 	const selectNft = () => {
-		showModal();
-		console.log({ name, author, tokenAddress, tokenId });
+		showModal({ image, name, tokenId, tokenAddress, author, attributes });
 	};
 
 	return (

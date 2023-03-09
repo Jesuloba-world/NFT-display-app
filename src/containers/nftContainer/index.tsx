@@ -26,6 +26,7 @@ export const NftContainer = () => {
 								author={nft.name}
 								tokenAddress={nft.tokenAddress._value}
 								tokenId={nft.tokenId}
+								attributes={nft.metadata.attributes}
 							/>
 						</Center>
 					);
