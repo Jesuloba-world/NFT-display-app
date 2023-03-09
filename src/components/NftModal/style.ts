@@ -23,6 +23,18 @@ export const Container = styled.div`
 	grid-template-columns: repeat(2, 1fr);
 	grid-template-rows: repeat(2, 1fr);
 	gap: 20px;
+
+	@media (max-width: 900px) {
+		width: 100%;
+	}
+
+	@media (max-width: 600px) {
+		height: 100%;
+		grid-template-columns: 1fr;
+		grid-template-rows: 1fr;
+		border-radius: 0;
+		overflow-y: scroll;
+	}
 `;
 
 export const Backdrop = styled.div`
