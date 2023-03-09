@@ -156,3 +156,40 @@ export const AttributeValue = styled.p`
 	font-size: 14px;
 	line-height: 21px;
 `;
+
+export const TransferBox = styled.div`
+	height: 266px;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+`;
+
+export const Transfers = styled.div`
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	overflow-y: auto;
+`;
+
+export const Transfer = styled.div`
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px;
+	border-top: 1px solid ${({ theme }) => theme.grey};
+
+	&:last-of-type {
+		border-bottom: 1px solid ${({ theme }) => theme.grey};
+	}
+
+	p {
+		width: 100px;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+`;
+
+export const Mid = styled.div``;
+
+export const Value = styled.p``;
