@@ -87,6 +87,13 @@ export const Close = styled.button`
 		height: 20px;
 		width: 20px;
 	}
+
+	@media (max-width: 600px) {
+		position: relative;
+		width: 100%;
+		top: 0;
+		right: 0;
+	}
 `;
 
 export const Top = styled.div`
